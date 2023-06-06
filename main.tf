@@ -23,7 +23,7 @@ resource "aws_security_group" "sg" {
 }
 
 resource "aws_lb" "main" {
-  name               = "test-lb-tf"
+  name               = "${var.name}-alb-${var.env}"
   internal           = var.internal
   load_balancer_type = "application"
   security_groups    = [aws_security_group.sg.id]
